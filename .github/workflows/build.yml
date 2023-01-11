@@ -164,6 +164,9 @@ jobs:
         sudo swapoff -a
         sudo rm -rf /usr/share/dotnet /usr/local/lib/android/sdk /usr/local/share/boost /opt/ghc
         echo "cores: $(nproc)"
+        git clone https://github.com/friendlyarm/prebuilts.git -b master --depth 1
+        cd prebuilts/gcc-x64
+        cat toolchain-6.4-aarch64.tar.gz* | sudo tar xz -C /
 
     - name: Download source
       run: |
